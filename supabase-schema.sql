@@ -103,6 +103,22 @@ CREATE POLICY "Products storage: service manage" ON storage.objects
   FOR ALL TO service_role USING (bucket_id = 'products');
 
 -- ============================================================
+-- Admin Settings table (stores hashed admin password after first change)
+-- ============================================================
+CREATE TABLE IF NOT EXISTS admin_settings (
+  key        TEXT PRIMARY KEY,
+  value      TEXT NOT NULL,
+  updated_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+ALTER TABLE admin_settings ENABLE ROW LEVEL SECURITY;
+
+-- Only service_role can read/write admin_settings (never exposed to anon)
+DROP POLICY IF EXISTS "Admin settings: service only" ON admin_settings;
+CREATE POLICY "Admin settings: service only" ON admin_settings
+  FOR ALL TO service_role USING (true) WITH CHECK (true);
+
+-- ============================================================
 -- Sample Data (optional — uncomment to seed products)
 -- ============================================================
 

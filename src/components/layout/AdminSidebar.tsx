@@ -11,6 +11,8 @@ import {
   Plus,
   Menu,
   X,
+  KeyRound,
+  Home,
 } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
@@ -20,6 +22,7 @@ const NAV = [
   { label: "Dashboard", href: "/admin/dashboard", icon: LayoutDashboard },
   { label: "Products", href: "/admin/products", icon: Package },
   { label: "Orders", href: "/admin/orders", icon: ShoppingBag },
+  { label: "Settings", href: "/admin/settings", icon: KeyRound },
 ];
 
 export default function AdminSidebar() {
@@ -85,13 +88,14 @@ export default function AdminSidebar() {
       </nav>
 
       {/* Footer */}
-      <div className="px-3 py-4 border-t border-white/5">
+      <div className="px-3 py-4 border-t border-white/5 space-y-1">
         <Link
           href="/"
-          target="_blank"
-          className="flex items-center gap-3 px-4 py-2.5 rounded-xl text-xs text-gray-600 hover:text-gray-400 transition-colors"
+          onClick={() => setMobileOpen(false)}
+          className="flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-medium text-gray-400 hover:text-white hover:bg-white/5 transition-all"
         >
-          View Store ↗
+          <Home size={15} />
+          Back to Store
         </Link>
         <button
           onClick={handleLogout}

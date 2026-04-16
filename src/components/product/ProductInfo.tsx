@@ -53,7 +53,7 @@ export default function ProductInfo({ product }: ProductInfoProps) {
             <Star key={s} size={14} className="text-brand-gold fill-brand-gold" />
           ))}
         </div>
-        <span className="text-gray-500 text-sm">(4.9/5 · 250+ reviews)</span>
+        <span className="text-gray-500 text-sm">(4.8/5 · 100+ reviews)</span>
       </div>
 
       {/* Price */}

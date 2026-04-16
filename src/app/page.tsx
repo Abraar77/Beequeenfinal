@@ -133,10 +133,10 @@ export default function HomePage() {
 
             <div className="grid grid-cols-2 gap-4">
               {[
-                { number: "8+", text: "Years of Experience", color: "text-brand-gold" },
+                { number: "2+", text: "Years of Experience", color: "text-brand-gold" },
                 { number: "10K+", text: "Happy Customers", color: "text-brand-pink" },
-                { number: "50+", text: "Premium Products", color: "text-brand-gold" },
-                { number: "4.9★", text: "Average Rating", color: "text-brand-pink" },
+                { number: "10+", text: "Premium Products", color: "text-brand-gold" },
+                { number: "4.8★", text: "Average Rating", color: "text-brand-pink" },
               ].map(({ number, text, color }) => (
                 <div key={text} className="card-luxury p-6 text-center">
                   <div className={`font-display text-4xl font-bold ${color} mb-2`}>{number}</div>

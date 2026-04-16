@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { signAdminToken, verifyAdminPassword, ADMIN_COOKIE } from "@/lib/auth";
+import { signAdminToken, verifyAdminPassword, verifyStoredPassword, ADMIN_COOKIE } from "@/lib/auth";
+import { createServiceClient } from "@/lib/supabase/server";
 
 // ─── Brute-force protection (in-memory) ────────────────────────────────────
 const loginAttempts = new Map<string, { count: number; resetAt: number }>();
@@ -47,7 +48,25 @@ export async function POST(request: NextRequest) {
   try {
     const { password } = await request.json();
 
-    if (!verifyAdminPassword(password)) {
+    // Check DB-stored password first (set via Change Password); fall back to env var
+    let passwordValid = false;
+    try {
+      const supabase = createServiceClient();
+      const { data } = await supabase
+        .from("admin_settings")
+        .select("value")
+        .eq("key", "admin_password")
+        .single();
+      if (data?.value) {
+        passwordValid = await verifyStoredPassword(password, data.value);
+      }
+    } catch {
+      // Table may not exist yet — fall through to env var check
+    }
+    if (!passwordValid) {
+      passwordValid = verifyAdminPassword(password);
+    }
+    if (!passwordValid) {
       return NextResponse.json({ error: "Invalid password" }, { status: 401 });
     }
 
