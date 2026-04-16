@@ -6,6 +6,7 @@ import TrustBadges from "@/components/home/TrustBadges";
 import StatsBar from "@/components/home/StatsBar";
 import CategoryStrip from "@/components/home/CategoryStrip";
 import FounderSection from "@/components/home/FounderSection";
+import AchievementsSection from "@/components/home/AchievementsSection";
 import GoogleReviewSection from "@/components/home/GoogleReviewSection";
 import Spinner from "@/components/ui/Spinner";
 import Link from "next/link";
@@ -72,6 +73,8 @@ export default function HomePage() {
       <TrustBadges />
 
       <FounderSection />
+
+      <AchievementsSection />
 
       <GoogleReviewSection />
 
