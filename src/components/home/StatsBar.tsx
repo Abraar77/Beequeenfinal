@@ -4,8 +4,8 @@ import { useEffect, useRef, useState } from "react";
 
 const STATS = [
   { value: 10000, suffix: "+", label: "Happy Customers", color: "text-brand-gold" },
-  { value: 50, suffix: "+", label: "Premium Products", color: "text-brand-pink" },
-  { value: 8, suffix: "+", label: "Years of Trust", color: "text-brand-gold" },
+  { value: 10, suffix: "+", label: "Premium Products", color: "text-brand-pink" },
+  { value: 2, suffix: "+", label: "Years of Trust", color: "text-brand-gold" },
   { value: 4.9, suffix: "★", label: "Average Rating", color: "text-brand-pink" },
 ];
 
