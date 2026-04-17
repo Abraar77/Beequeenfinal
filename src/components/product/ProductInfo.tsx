@@ -125,7 +125,7 @@ export default function ProductInfo({ product }: ProductInfoProps) {
       <div className="grid grid-cols-3 gap-3">
         {[
           { icon: Shield, text: "100% Authentic" },
-          { icon: Truck, text: "Fast Delivery" },
+          { icon: Truck, text: "Pan India" },
           { icon: Package, text: "Secure Pack" },
         ].map(({ icon: Icon, text }) => (
           <div key={text} className="flex flex-col items-center gap-1.5 p-3 rounded-xl text-center"

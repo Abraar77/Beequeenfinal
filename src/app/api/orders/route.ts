@@ -108,8 +108,6 @@ export async function POST(request: NextRequest) {
       .map((item) => `• ${item.product.title} × ${item.quantity} = ₹${(item.product.price * item.quantity).toLocaleString("en-IN")}`)
       .join("\n");
 
-    const delivery = 99;
-
     const msg =
       `🛒 *New Order — BeeQueen of Kashmir*\n` +
       `━━━━━━━━━━━━━━━━━━━\n\n` +
@@ -120,9 +118,7 @@ export async function POST(request: NextRequest) {
       `━━━━━━━━━━━━━━━━━━━\n` +
       `🛍️ *Items:*\n${itemLines}\n\n` +
       `━━━━━━━━━━━━━━━━━━━\n` +
-      `🧾 Subtotal: ₹${parsed.data.total_price.toLocaleString("en-IN")}\n` +
-      `🚚 Delivery: ₹${delivery}\n` +
-      `💰 *Grand Total: ₹${(parsed.data.total_price + delivery).toLocaleString("en-IN")}*\n\n` +
+      `💰 *Total: ₹${parsed.data.total_price.toLocaleString("en-IN")}*\n\n` +
       `🕐 ${now}`;
 
     sendOwnerWhatsApp(msg).catch(() => {});

@@ -19,8 +19,8 @@ const BADGES = [
   },
   {
     icon: Zap,
-    title: "Fast Delivery",
-    desc: "Nationwide shipping with real-time order tracking",
+    title: "Fast Dispatch",
+    desc: "Orders processed quickly and shipped across India",
     color: "text-brand-pink",
     bg: "rgba(233,30,140,0.08)",
     border: "rgba(233,30,140,0.15)",

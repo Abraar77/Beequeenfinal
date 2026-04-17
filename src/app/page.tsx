@@ -88,7 +88,7 @@ export default function HomePage() {
           <p className="section-label mb-4">Limited Time Offer</p>
   
           <p className="text-gray-400 text-lg mb-8 max-w-xl mx-auto">
-            Stock up on premium Kashmiri products and enjoy free pan-India delivery. Authentic. Pure. Guaranteed.
+            Stock up on premium Kashmiri products. Authentic. Pure. Guaranteed.
           </p>
           <Link href="/shop">
             <button suppressHydrationWarning className="btn-pink px-10 py-4 text-base font-semibold inline-flex items-center gap-3 group">

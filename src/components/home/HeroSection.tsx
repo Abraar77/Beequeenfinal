@@ -78,7 +78,7 @@ export default function HeroSection() {
           {[
             { icon: Star, text: "4.9/5 Rating", sub: "2,000+ reviews" },
             { icon: Shield, text: "100% Authentic", sub: "Direct from Kashmir" },
-            { icon: Truck, text: "Fast Delivery", sub: "Pan India" },
+            { icon: Truck, text: "Pan India", sub: "Shipping Available" },
           ].map(({ icon: Icon, text, sub }) => (
             <div key={text} className="flex items-center gap-3">
               <div
