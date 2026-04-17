@@ -67,7 +67,7 @@ export default function ProductCard({ product }: ProductCardProps) {
             </span>
             <div className="flex items-center gap-1">
               <Star size={10} className="text-brand-gold fill-brand-gold" />
-              <span className="text-[10px] text-gray-500">4.9</span>
+              <span className="text-[10px] text-gray-500">4.8</span>
             </div>
           </div>
 
