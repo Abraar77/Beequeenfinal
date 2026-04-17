@@ -56,7 +56,7 @@ export default function GoogleReviewSection() {
               {Array.from({ length: 5 }).map((_, i) => (
                 <Star key={i} size={18} className="text-yellow-400 fill-yellow-400" />
               ))}
-              <span className="text-yellow-400 text-sm font-bold ml-1">4.9</span>
+              <span className="text-yellow-400 text-sm font-bold ml-1">4.8</span>
             </div>
 
             {/* Google branding */}
