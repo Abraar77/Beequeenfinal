@@ -76,7 +76,7 @@ export default function HeroSection() {
         {/* Trust signals */}
         <div className="flex flex-col xs:flex-row flex-wrap items-center justify-center gap-4 sm:gap-6 lg:gap-10 px-4">
           {[
-            { icon: Star, text: "4.9/5 Rating", sub: "2,000+ reviews" },
+            { icon: Star, text: "4.8/5 Rating", sub: "2,000+ reviews" },
             { icon: Shield, text: "100% Authentic", sub: "Direct from Kashmir" },
             { icon: Truck, text: "Pan India", sub: "Shipping Available" },
           ].map(({ icon: Icon, text, sub }) => (
