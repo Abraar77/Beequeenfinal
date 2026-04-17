@@ -11,7 +11,6 @@ export default function CartPage() {
   const { items, totalPrice, totalItems, clearCart } = useCartStore();
   const total = totalPrice();
   const count = totalItems();
-  const delivery = 99;
 
   return (
     <div className="min-h-screen pt-28 sm:pt-36 pb-16">
@@ -68,17 +67,13 @@ export default function CartPage() {
                 <h2 className="text-white font-semibold text-lg">Order Summary</h2>
                 <div className="space-y-3 text-sm">
                   <div className="flex justify-between">
-                    <span className="text-gray-500">Subtotal ({count} items)</span>
+                    <span className="text-gray-500">{count} {count === 1 ? "item" : "items"}</span>
                     <span className="text-white">{formatPrice(total)}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-500">Delivery</span>
-                    <span className="text-white">{formatPrice(delivery)}</span>
                   </div>
                   <div className="border-t border-white/5 pt-3 flex justify-between items-center">
                     <span className="text-white font-bold text-base">Total</span>
                     <span className="font-display text-2xl font-bold text-shimmer">
-                      {formatPrice(total + delivery)}
+                      {formatPrice(total)}
                     </span>
                   </div>
                 </div>

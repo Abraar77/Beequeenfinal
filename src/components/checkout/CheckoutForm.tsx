@@ -125,7 +125,7 @@ export default function CheckoutForm() {
           <div className="flex flex-col gap-1.5">
             <label className="text-sm font-medium text-gray-300 flex items-center gap-2">
               <MapPin size={14} className="text-gray-500" />
-              Delivery Address
+              Your Address
             </label>
             <textarea
               placeholder="Full address with city, state, pin code..."
@@ -179,18 +179,10 @@ export default function CheckoutForm() {
           ))}
 
           <div className="border-t border-white/5 pt-4 mt-4">
-            <div className="flex justify-between items-center mb-2">
-              <span className="text-gray-500 text-sm">Subtotal</span>
-              <span className="text-white text-sm">{formatPrice(total)}</span>
-            </div>
-            <div className="flex justify-between items-center mb-3">
-              <span className="text-gray-500 text-sm">Delivery</span>
-              <span className="text-white text-sm">₹99</span>
-            </div>
             <div className="flex justify-between items-center">
               <span className="text-white font-bold text-lg">Total</span>
               <span className="font-display text-2xl font-bold text-shimmer">
-                {formatPrice(total + 99)}
+                {formatPrice(total)}
               </span>
             </div>
           </div>
