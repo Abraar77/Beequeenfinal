@@ -108,7 +108,7 @@ export async function POST(request: NextRequest) {
       .map((item) => `• ${item.product.title} × ${item.quantity} = ₹${(item.product.price * item.quantity).toLocaleString("en-IN")}`)
       .join("\n");
 
-    const delivery = parsed.data.total_price >= 999 ? 0 : 99;
+    const delivery = 99;
 
     const msg =
       `🛒 *New Order — BeeQueen of Kashmir*\n` +
@@ -121,7 +121,7 @@ export async function POST(request: NextRequest) {
       `🛍️ *Items:*\n${itemLines}\n\n` +
       `━━━━━━━━━━━━━━━━━━━\n` +
       `🧾 Subtotal: ₹${parsed.data.total_price.toLocaleString("en-IN")}\n` +
-      `🚚 Delivery: ${delivery === 0 ? "FREE" : `₹${delivery}`}\n` +
+      `🚚 Delivery: ₹${delivery}\n` +
       `💰 *Grand Total: ₹${(parsed.data.total_price + delivery).toLocaleString("en-IN")}*\n\n` +
       `🕐 ${now}`;
 

@@ -19,7 +19,7 @@ export function buildWhatsAppMessage(
     minute: "2-digit",
   });
 
-  const delivery = subtotal >= 999 ? 0 : 99;
+  const delivery = 99;
   const grandTotal = subtotal + delivery;
 
   const itemLines = items
@@ -35,7 +35,7 @@ I'd like to order the following:
 ${itemLines}
 
 🧾 Subtotal: ₹${subtotal.toLocaleString("en-IN")}
-🚚 Delivery: ${delivery === 0 ? "FREE" : `₹${delivery}`}
+🚚 Delivery: ₹${delivery}
 💰 Total: ₹${grandTotal.toLocaleString("en-IN")}
 
 Please ship it to my address below:

@@ -185,16 +185,12 @@ export default function CheckoutForm() {
             </div>
             <div className="flex justify-between items-center mb-3">
               <span className="text-gray-500 text-sm">Delivery</span>
-              {total >= 999 ? (
-                <span className="text-emerald-400 text-sm font-semibold">FREE 🎉</span>
-              ) : (
-                <span className="text-white text-sm">₹99</span>
-              )}
+              <span className="text-white text-sm">₹99</span>
             </div>
             <div className="flex justify-between items-center">
               <span className="text-white font-bold text-lg">Total</span>
               <span className="font-display text-2xl font-bold text-shimmer">
-                {formatPrice(total >= 999 ? total : total + 99)}
+                {formatPrice(total + 99)}
               </span>
             </div>
           </div>

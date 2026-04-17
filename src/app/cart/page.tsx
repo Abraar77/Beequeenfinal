@@ -11,7 +11,7 @@ export default function CartPage() {
   const { items, totalPrice, totalItems, clearCart } = useCartStore();
   const total = totalPrice();
   const count = totalItems();
-  const delivery = total >= 999 ? 0 : 99;
+  const delivery = 99;
 
   return (
     <div className="min-h-screen pt-28 sm:pt-36 pb-16">
@@ -73,9 +73,7 @@ export default function CartPage() {
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-500">Delivery</span>
-                    <span className={delivery === 0 ? "text-emerald-400 font-medium" : "text-white"}>
-                      {delivery === 0 ? "FREE" : formatPrice(delivery)}
-                    </span>
+                    <span className="text-white">{formatPrice(delivery)}</span>
                   </div>
                   <div className="border-t border-white/5 pt-3 flex justify-between items-center">
                     <span className="text-white font-bold text-base">Total</span>
@@ -84,13 +82,6 @@ export default function CartPage() {
                     </span>
                   </div>
                 </div>
-
-                {total < 999 && (
-                  <div className="p-3 rounded-xl text-xs text-gray-500"
-                    style={{ background: "rgba(212,175,55,0.05)", border: "1px solid rgba(212,175,55,0.1)" }}>
-                    Add {formatPrice(999 - total)} more for free delivery! 🚚
-                  </div>
-                )}
 
                 <Link href="/checkout">
                   <Button variant="pink" size="lg" fullWidth className="gap-2 group">
