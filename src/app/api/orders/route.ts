@@ -112,7 +112,7 @@ export async function POST(request: NextRequest) {
       `🛒 *New Order — BeeQueen of Kashmir*\n` +
       `━━━━━━━━━━━━━━━━━━━\n\n` +
       `👤 *Name:* ${parsed.data.customer_name}\n` +
-      `📞 *Phone:* ${parsed.data.phone}\n` +
+      `📞 *Phone:* https://wa.me/91${parsed.data.phone}\n` +
       `📧 *Email:* ${parsed.data.email}\n` +
       `📍 *Address:* ${parsed.data.location}\n\n` +
       `━━━━━━━━━━━━━━━━━━━\n` +

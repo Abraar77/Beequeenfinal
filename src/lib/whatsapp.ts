@@ -38,7 +38,7 @@ Please send it to my address below:
 
 My details:
 👤 Name: ${customerName}
-📞 Phone: ${phone}
+📞 Phone: https://wa.me/91${phone}
 📧 Email: ${email}
 
 Could you please confirm the order and let me know the delivery timeline? Thank you! 🙏
