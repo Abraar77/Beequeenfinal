@@ -53,3 +53,18 @@ export async function PATCH(
     return NextResponse.json({ error: "Failed to update" }, { status: 500 });
   }
 }
+
+export async function DELETE(
+  _request: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
+) {
+  try {
+    const { id } = await params;
+    const supabase = await createServiceClient();
+    const { error } = await supabase.from("orders").delete().eq("id", id);
+    if (error) throw error;
+    return NextResponse.json({ success: true });
+  } catch {
+    return NextResponse.json({ error: "Failed to delete" }, { status: 500 });
+  }
+}

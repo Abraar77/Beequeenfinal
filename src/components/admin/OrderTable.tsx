@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Eye, ChevronDown } from "lucide-react";
+import { Eye, ChevronDown, Trash2 } from "lucide-react";
 import { formatDate, formatPrice } from "@/lib/utils";
 import type { Order, OrderStatus } from "@/types";
 import toast from "react-hot-toast";
@@ -16,6 +16,22 @@ interface OrderTableProps {
 export default function OrderTable({ orders: initial }: OrderTableProps) {
   const [orders, setOrders] = useState(initial);
   const [updating, setUpdating] = useState<string | null>(null);
+  const [deleting, setDeleting] = useState<string | null>(null);
+
+  const deleteOrder = async (id: string) => {
+    if (!confirm("Delete this order? This cannot be undone.")) return;
+    setDeleting(id);
+    try {
+      const res = await fetch(`/api/admin/orders/${id}`, { method: "DELETE" });
+      if (!res.ok) throw new Error();
+      setOrders((o) => o.filter((x) => x.id !== id));
+      toast.success("Order deleted");
+    } catch {
+      toast.error("Failed to delete order");
+    } finally {
+      setDeleting(null);
+    }
+  };
 
   const updateStatus = async (id: string, status: OrderStatus) => {
     setUpdating(id);
@@ -115,12 +131,21 @@ export default function OrderTable({ orders: initial }: OrderTableProps) {
 
               {/* Actions */}
               <td className="px-4 py-3 text-right">
-                <Link
-                  href={`/admin/orders/${o.id}`}
-                  className="w-8 h-8 rounded-lg flex items-center justify-center text-gray-500 hover:text-brand-gold hover:bg-brand-gold/10 transition-all ml-auto"
-                >
-                  <Eye size={14} />
-                </Link>
+                <div className="flex items-center justify-end gap-1">
+                  <Link
+                    href={`/admin/orders/${o.id}`}
+                    className="w-8 h-8 rounded-lg flex items-center justify-center text-gray-500 hover:text-brand-gold hover:bg-brand-gold/10 transition-all"
+                  >
+                    <Eye size={14} />
+                  </Link>
+                  <button
+                    onClick={() => deleteOrder(o.id)}
+                    disabled={deleting === o.id}
+                    className="w-8 h-8 rounded-lg flex items-center justify-center text-gray-500 hover:text-red-400 hover:bg-red-400/10 transition-all disabled:opacity-40"
+                  >
+                    <Trash2 size={14} />
+                  </button>
+                </div>
               </td>
             </tr>
           ))}
